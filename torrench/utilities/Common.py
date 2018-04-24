@@ -156,7 +156,8 @@ class Common:
         try:
             self.output = tabulate(self.masterlist, headers=self.headers, tablefmt="grid")
             if self.OS_WIN:
-                self.output = self.output.encode('ascii', 'replace').decode()
+                #self.output = self.output.encode('ascii', 'replace').decode()
+                self.output = self.output.encode('cp949', 'replace').decode('cp949')
             print("\n%s" % (self.output))
         except KeyboardInterrupt as e:
             self.logger.exception(e)
